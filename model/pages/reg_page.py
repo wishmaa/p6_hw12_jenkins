@@ -16,12 +16,10 @@ class RegPage:
         self.fill_currentadress = browser.element("#currentAddress")
 
     def open(self):
-        browser.open("/automation-practice-form")
-        browser.all("[id^=google_ads][id$=container__]").with_(timeout=10).wait_until(
-            have.size_greater_than_or_equal(3)
-        )
-        browser.all("[id^=google_ads][id$=container__]").perform(command.js.remove)
-        return self
+        browser.open('/automation-practice-form')
+        browser.element(".practice-form-wrapper").should(have.text("Student Registration Form"))
+        browser.driver.execute_script("$('footer').remove()")
+        browser.driver.execute_script("$('#fixedban').remove()")
 
     def fill_all_form(self, user: User):
         self.fill_firstname.type(user.first_name)

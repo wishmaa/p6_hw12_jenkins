@@ -5,7 +5,7 @@ import allure
 
 
 @allure.title("Fill form")
-def test_fill_form():
+def test_fill_form(setup_browser):
     # Open registration form
     reg_page = RegPage()
 
