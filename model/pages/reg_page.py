@@ -1,4 +1,4 @@
-from selene import browser, have, command
+from selene import browser, have
 from model.users.users import User
 from test.conftest import path
 
@@ -20,6 +20,7 @@ class RegPage:
         browser.element(".practice-form-wrapper").should(have.text("Student Registration Form"))
         browser.driver.execute_script("$('footer').remove()")
         browser.driver.execute_script("$('#fixedban').remove()")
+        return self
 
     def fill_all_form(self, user: User):
         self.fill_firstname.type(user.first_name)
