@@ -1,6 +1,5 @@
 import dataclasses
 import datetime
-from enum import Enum
 
 
 @dataclasses.dataclass
